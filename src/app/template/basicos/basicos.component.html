@@ -2,7 +2,11 @@
 <hr />
 <div class="row">
   <div class="col">
-    <form>
+    <!-- referencia local le agrego el #miFormulario de tipo ngForm-->
+    <!-- ngModel se agrega como propiedad en la etiqueta y el atributo name -->
+    <form (ngSubmit)="guardar( miFormulario )" #miFormulario="ngForm"
+    autocomplete="false"
+    >
       <!-- Campo de producto -->
       <div class="mb-3 row">
         <label class="col-sm-3 col-fom-label">Producto</label>
@@ -10,8 +14,10 @@
           <input
             type="text"
             class="form-control"
+            ngModel
+            name="producto"
             placeholder="Nombre del Producto"
-          />
+          required/>
           <span class="form-text text-danger">Debe de ser de 3 letras</span>
         </div>
       </div>
@@ -23,10 +29,12 @@
           <input
             type="number"
             class="form-control"
+            ngModel
+            name="precio"
             placeholder="Precio del Producto"
-          />
-        </div>
-      </div>
+           required
+           min="0"/>
+        </div>      </div>
       <!-- Campo de existencias -->
       <div class="mb-3 row">
         <label class="col-sm-3 col-fom-label">Existencias</label>
@@ -34,6 +42,8 @@
           <input
             type="number"
             class="form-control"
+            ngModel
+            name="existencia"
             placeholder="Existencias del Producto"
           />
         </div>
@@ -46,6 +56,30 @@
             </button>
           </div>
        </div>
+
     </form>
   </div>
+</div>
+
+<div class="row">
+  <div class="col">
+
+
+    <span>Value</span>
+    <pre>{{ miFormulario.valid}}</pre>
+
+    <span>Pristine</span>
+    <!-- significa que no se han cambiado ninguno de los valor con los que se presentó -->
+    <!-- el formulario es decir el formulario no ha sido cambiado sus valores desde que  -->
+    <!-- se presento al usuario -->
+    <pre>{{ miFormulario.pristine}}</pre>
+
+    <span>Touched</span>
+    <!-- significa si el usuario ha tocado el formulario -->
+    <pre>{{ miFormulario.touched}}</pre>
+
+    <span>Value</span>
+    <pre>{{ miFormulario.value | json}}</pre>
+  </div>
+
 </div>

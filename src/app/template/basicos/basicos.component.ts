@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-basicos',
@@ -13,4 +15,11 @@ export class BasicosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  guardar( miFormulario: NgForm){
+    // guardar(miformulario: any){
+      // console.log(miformulario);
+    console.log(miFormulario.value);
+
+
+  }
 }
