@@ -4,7 +4,8 @@
   <div class="col">
     <!-- referencia local le agrego el #miFormulario de tipo ngForm-->
     <!-- ngModel se agrega como propiedad en la etiqueta y el atributo name -->
-    <form (ngSubmit)="guardar( miFormulario )" #miFormulario="ngForm"
+    <form (ngSubmit)="guardar()"
+    #miFormulario="ngForm"
     autocomplete="false"
     >
       <!-- Campo de producto -->
@@ -20,8 +21,10 @@
             placeholder="Nombre del Producto"
             required
             minlength="3"/>
-          <span class="form-text text-danger" *ngIf="miFormulario.controls['producto']?.invalid &&
-          miFormulario.controls['producto']?.touched">Debe de ser de 3 letras</span>
+          <span class="form-text text-danger"
+                 *ngIf="nombreValido()">
+           Debe de ser de 3 letras
+        </span>
         </div>
 
       </div>
