@@ -39,9 +39,17 @@
             ngModel
             name="precio"
             placeholder="Precio del Producto"
-           required
-           min="0"/>
-        </div>      </div>
+            required
+            min="0"
+
+            />
+            <span class="form-text text-danger"
+          *ngIf="precioValido()">
+              El precio debe ser cero o mayor
+          </span>
+        </div>
+
+       </div>
       <!-- Campo de existencias -->
       <div class="mb-3 row">
         <label class="col-sm-3 col-fom-label">Existencias</label>
@@ -51,14 +59,18 @@
             class="form-control"
             ngModel
             name="existencia"
+            customMin
+            [minimo] = 0
             placeholder="Existencias del Producto"
-          />
+          required/>
         </div>
       </div>
 
        <div class="row">
           <div class="col">
-            <button type="submit" class="btn btn-primary float-end">
+            <button type="submit"
+                    [disabled]="miFormulario.invalid"
+                     class="btn btn-primary float-end">
               Guardar
             </button>
           </div>
@@ -87,6 +99,9 @@
 
     <span>Value</span>
     <pre>{{ miFormulario.value | json}}</pre>
+
+    <span>CustomDirective</span>
+    <!-- <pre>{{ miFormulario.controls['producto'].errors | json}}</pre> -->
   </div>
 
 </div>

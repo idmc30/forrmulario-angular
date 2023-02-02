@@ -20,6 +20,11 @@ export class BasicosComponent implements OnInit {
 
   // guardar( miFormulario: NgForm){
 
+  precioValido():boolean{
+
+    return this.miFormulario?.controls['precio']?.value < 0 &&
+    this.miFormulario?.controls['precio']?.touched
+  }
 
   nombreValido():boolean {
 
