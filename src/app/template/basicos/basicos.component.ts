@@ -18,6 +18,11 @@ export class BasicosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  customDirective(){
+
+    return this.miFormulario?.controls['existencia']?.errors;
+  }
+
   // guardar( miFormulario: NgForm){
 
   precioValido():boolean{
