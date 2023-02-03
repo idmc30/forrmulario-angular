@@ -24,13 +24,25 @@ interface Favorito{
 })
 export class DinamicosComponent{
 
-     persona:Persona = {
-        nombre : 'Irwin',
-        favoritos: [
-          { id: 1, nombre : 'Spiderman 2'},
-          { id: 2, nombre : 'Call of Dufty'},
-        ]
-     };
+    nuevoJuego ="";
+    persona:Persona = {
+      nombre : 'Irwin',
+      favoritos: [
+        { id: 1, nombre : 'Spiderman 2'},
+        { id: 2, nombre : 'Call of Dufty'},
+      ]
+    };
+
+    agregarJuego(){
+      const nuevoFavorio:Favorito ={
+        id: this.persona.favoritos.length,
+        nombre: this.nuevoJuego
+      }
+
+     this.persona.favoritos.push({...nuevoFavorio});
+
+     this.nuevoJuego ='';
+    }
 
     eliminar(index:number){
       console.log(index);
