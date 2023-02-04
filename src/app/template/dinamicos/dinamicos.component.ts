@@ -55,5 +55,8 @@ export class DinamicosComponent{
     console.log('fornmulario posteado');
 
    }
+ 
+
+
 
 }
