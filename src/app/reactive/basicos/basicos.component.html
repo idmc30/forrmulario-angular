@@ -1,1 +1,93 @@
-<p>basicos works!</p>
+<h2>Reactivos: Básico</h2>
+<hr />
+<div class="row">
+  <div class="col">
+<!-- formControlName="nombre"-> para relacionar el campo -->
+    <form  autocomplete="false" [formGroup]="miFormulario">
+      <!-- Campo de producto -->
+      <div class="mb-3 row">
+
+        <label class="col-sm-3 col-fom-label">Producto</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"            
+            name="producto"
+            formControlName="nombre"
+            placeholder="Nombre del Producto"
+            />
+          <span class="form-text text-danger" >
+           Debe de ser de 3 letras
+        </span>
+        </div>
+
+      </div>
+
+      <!-- Campo de producto -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-fom-label">Precio</label>
+        <div class="col-sm-9">
+          <input
+            type="number"
+            class="form-control"
+            formControlName="precio"
+            placeholder="Precio del Producto"/>
+            <span class="form-text text-danger"
+         >
+              El precio debe ser cero o mayor
+          </span>
+        </div>
+
+       </div>
+      <!-- Campo de existencias -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-fom-label">Existencias</label>
+        <div class="col-sm-9">
+          <input
+            type="number"
+            class="form-control"
+            formControlName="existencias"
+            name="existencia"          
+            placeholder="Existencias del Producto"/>
+        </div>
+      </div>
+
+       <div class="row">
+          <div class="col">
+            <button type="submit"
+                    
+                     class="btn btn-primary float-end">
+              Guardar
+            </button>
+          </div>
+       </div>
+
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+
+
+    <span>Valid</span>
+    <pre>{{ miFormulario.valid}}</pre>
+
+    <span>Pristine</span>
+    <!-- significa que no se han cambiado ninguno de los valor con los que se presentó -->
+    <!-- el formulario es decir el formulario no ha sido cambiado sus valores desde que  -->
+    <!-- se presento al usuario -->
+    <pre>{{ miFormulario.pristine}}</pre>
+
+    <span>Touched</span>
+    <!-- significa si el usuario ha tocado el formulario -->
+    <pre>{{ miFormulario.touched}}</pre>
+
+    <span>Value</span>
+    <pre>{{ miFormulario.value | json}}</pre>
+
+
+  
+  </div>
+
+</div>
