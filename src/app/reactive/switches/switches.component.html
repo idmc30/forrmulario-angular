@@ -1,7 +1,7 @@
 <h2>Reactivos: Switches</h2>
 <hr>
 
-<form >
+<form (ngSubmit)="guardar()" [formGroup]="miFormulario" >
   <!-- Radios -->
     <div class="row mb-3">
       <label class="col-sm-3 col-form-label">Género</label>
@@ -10,8 +10,8 @@
         <div class="form-check">
           <input class="form-check-input"
                   type="radio"
-                  value="M"        
-                  name="radioGenero"
+                  value="M"                         
+                  formControlName="genero"
                   id="radioMasculino"
                   >
           <label class="form-check-label" for="radioMasculino">
@@ -22,8 +22,8 @@
           <input class="form-check-input"
                   type="radio"
                   value="F"
-                 
-                  name="radioGenero"
+                  formControlName="genero"
+              
                   id="radioFemenino"
                   >
           <label class="form-check-label" for="radioFemenino">
@@ -42,7 +42,7 @@
         <div class="form-check form-switch mt-2">
           <input class="form-check-input"
                   type="checkbox"                
-           
+                 formControlName="notificaciones"
                   role="switch"
                   id="flexSwitchCheckChecked">
           <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones</label>
@@ -59,7 +59,7 @@
             <div class="form-check">
               <input class="form-check-input"
                         type="checkbox"
-             
+                        formControlName="condiciones"
                          id="flexCheckChecked" >
               <label class="form-check-label" for="flexCheckChecked">
                 Terminos y condiciones de uso
@@ -73,7 +73,7 @@
 
         <div class="row">
           <div class="col">
-              <button class="btn btn-primary float-end">
+              <button type="submit" class="btn btn-primary float-end">
                 Guardar
               </button>
           </div>
@@ -83,11 +83,17 @@
 </form>
 
 
-<!-- <h5>Valor del formulario</h5>
+<h5>Valor del formulario</h5>
 <pre>{{ miFormulario.value | json}}</pre>
+
+
+<h5>Persona</h5>
+<pre>{{ persona| json}}</pre>
+
 
 <h5>Valid</h5>
 <pre>{{ miFormulario.valid}}</pre>
-
+<!-- 
 <br>
-<pre>Condiciones:</pre> -->
+<pre>Terminos:</pre>
+<pre>{{ miFormulario.get('terminos')?.errors | json}}</pre> -->
